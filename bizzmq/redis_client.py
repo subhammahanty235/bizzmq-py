@@ -14,6 +14,7 @@ class RedisClient:
         try:
             self.client = redis.from_url(redis_url)
             self.client.ping()
+            self._print_welcome_message()
         
         except redis.RedisError as err :
             raise ConnectionError(f"Failed to connect to Redis: {str(err)}") from err
