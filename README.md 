@@ -1,0 +1,16 @@
+# BizzMQ
+
+A lightweight Redis-based message queue system with Dead Letter Queue support.
+
+## Features
+
+- Simple API for queue management
+- Dead Letter Queue (DLQ) support
+- Message retry mechanism
+- Configurable retry options
+- Docker support
+
+## Installation
+
+```bash
+pip install bizzmq
