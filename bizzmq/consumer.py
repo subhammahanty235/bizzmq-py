@@ -192,7 +192,7 @@ def _requeue_message(redis_client: redis.Redis, queuename: str, message: dict, p
         return None
     
     else:
-        return self._move_message_to_dlq(ctx, queuename, message, processing_err)
+        return _move_message_to_dlq(redis_client, queuename, message, processing_err)
 
 
 def _move_message_to_dlq(redis_client: redis.Redis, queuename: str, message: dict, processing_err: Exception) -> Optional[Exception]:
