@@ -24,5 +24,5 @@ dev = [
 ]
 
 [project.urls]
-"Homepage" = "https://github.com/yourusername/bizzmq"
-"Bug Tracker" = "https://github.com/yourusername/bizzmq/issues"
+"Homepage" = "https://github.com/subhammahanty235/bizzmq-py"
+"Bug Tracker" = "https://github.com/subhammahanty235/bizzmq-py/issues"
