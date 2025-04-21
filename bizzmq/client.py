@@ -27,4 +27,9 @@ class BizzMQ:
         from .producer import publish_message_to_queue
         return publish_message_to_queue(self.redisInstance, queue_name, message, message_options)
     
+    def consume_message_from_queue(self, queue_name :str , callback:Callable[[Dict[str, Any]], None]) -> None:
+        from .consumer import consume_message_from_queue
+        return consume_message_from_queue(self.redisInstance, queue_name, callback)
+    
+    # TOBEDONE - GET DEAD LETTER QUEUE MESSAGES , RETRY DLQ MESSAGE
     

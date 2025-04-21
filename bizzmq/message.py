@@ -1,5 +1,6 @@
 from typing import Any, Dict, Optional, Union
 from dataclasses import dataclass, field
+import time
 @dataclass
 class MessageOptions:
     priority: int  = 0
@@ -28,6 +29,21 @@ class Message:
             "timestamp_updated": self.timestamp_updated,
             "status": self.status
         }
+
+def update_lifecycle_status(message_obj, new_status):
+    valid_states = ["waiting", "processing", "processed", "failed", "requeued"]
+    
+    if new_status not in valid_states:
+        return None
+    
+    # Ensure options field exists
+    if "options" not in message_obj or not isinstance(message_obj["options"], dict):
+        message_obj["options"] = {}
+    
+    message_obj["status"] = new_status
+    message_obj["options"]["timestamp_updated"] = int(time.time() * 1000)
+    
+    return message_obj
     
 def new_message( queue_name: str, message_id: str, message: Any, options: MessageOptions) -> Message:
     return Message(queue_name, message_id, message, options)

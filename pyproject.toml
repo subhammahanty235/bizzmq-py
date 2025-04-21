@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=42", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "bizzmq"
+version = "0.1.0"
+description = "A lightweight Redis-based message queue system with Dead Letter Queue support"
+readme = "README.md"
+requires-python = ">=3.7"
+license = {text = "MIT"}
+authors = [
+    {name = "Subham Mahanty", email = "subhammahanty235@gmail.com"}
+]
+dependencies = [
+    "redis>=4.5.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0.0",
+    "pytest-asyncio>=0.21.0",
+    "pytest-cov>=4.1.0",
+]
+
+[project.urls]
+"Homepage" = "https://github.com/yourusername/bizzmq"
+"Bug Tracker" = "https://github.com/yourusername/bizzmq/issues"
